@@ -8,14 +8,8 @@ function(add_fortran_executable name)
             # gfortran
             $<$<Fortran_COMPILER_ID:GNU>:-std=f2008 -Wall -Wextra -Wpedantic>
             # ifort
-            $<$<Fortran_COMPILER_ID:Intel>:
-                $<IF:
-                    $<PLATFORM_ID:Windows>,
-                    /stand:f08 /warn:all,
-                    -stand f08 -warn all
-                >
-            >
-    )
+            $<$<Fortran_COMPILER_ID:Intel>:$<IF:$<PLATFORM_ID:Windows>,/stand:f08 /warn:all,-stand f08 -warn all>>
+        )
 endfunction()
 
 add_fortran_executable(hello_world)
