@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 project(modern-fortran-examples Fortran)
 
-function(add_fortran_executable target_name)
+function(add_example target_name)
     add_executable(${target_name} ${ARGN})
     target_compile_options(${target_name}
         PRIVATE
@@ -12,6 +12,6 @@ function(add_fortran_executable target_name)
         )
 endfunction()
 
-add_fortran_executable(hello_world hello_world.f90)
-add_fortran_executable(type_example type_example.f90)
-add_fortran_executable(function_example function_example.f90)
+add_example(hello_world hello_world.f90)
+add_example(type_example type_example.f90)
+add_example(function_example function_example.f90)
