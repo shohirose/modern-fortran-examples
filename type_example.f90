@@ -9,6 +9,8 @@ program type_example
     integer(int32) :: i, j
     real(real64) :: a, b
     complex(real64) :: c
+    logical :: t, f
+    character(20) :: s
 
     i = 1
     j = i + 2
@@ -20,5 +22,12 @@ program type_example
 
     c = (1.0, 2.0)
     print "('c = ', f0.2, ' + ', f0.2, 'i')", c
+
+    t = .true.
+    f = .false.
+    print "('t = ', l1, ', f = ', l1)", t, f
+
+    s = "This is a string"
+    print "('s = ', a)", s
 
 end program type_example
