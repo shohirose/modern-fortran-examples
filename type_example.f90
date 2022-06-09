@@ -5,20 +5,20 @@ program type_example
     !> Disable implicit type assumption
     implicit none
 
-    !> Delare variables
+    !> Declare variables
     integer(int32) :: i, j
     real(real64) :: a, b
     complex(real64) :: c
 
     i = 1
     j = i + 2
-    print "('i = ', I0, ', j = ', I0)", i, j
+    print "('i = ', i0, ', j = ', i0)", i, j
 
     a = 2.5
     b = 3*a
-    print "('a = ', F0.2, ', b = ', F0.2)", a, b
+    print "('a = ', f0.2, ', b = ', f0.2)", a, b
 
     c = (1.0, 2.0)
-    print "('c = ', F0.2, ' + ', F0.2, 'i')", c
+    print "('c = ', f0.2, ' + ', f0.2, 'i')", c
 
 end program type_example
