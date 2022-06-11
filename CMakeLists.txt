@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(modern-fortran-examples Fortran)
+project(modern-fortran-examples LANGUAGES Fortran)
 
 function(add_example target_name)
     add_executable(${target_name} ${ARGN})
@@ -7,8 +7,8 @@ function(add_example target_name)
         PRIVATE
             # gfortran
             $<$<Fortran_COMPILER_ID:GNU>:-std=f2008 -Wall -Wextra -Wpedantic>
-            # ifort
-            $<$<Fortran_COMPILER_ID:Intel>:$<IF:$<PLATFORM_ID:Windows>,/stand:f08 /warn:all,-stand f08 -warn all>>
+            # ifort or ifx
+            $<$<OR:$<Fortran_COMPILER_ID:Intel>,$<Fortran_COMPILER_ID:IntelLLVM>>:$<IF:$<PLATFORM_ID:Windows>,/stand:f08 /warn:all,-stand f08 -warn all>>
         )
 endfunction()
 
